@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.farreaching.homepage.mapper.BondMapper" >
+
+    <select id="list" resultType="com.farreaching.homepage.entity.BondEntity">
+        select `date`, `rate`, `byMonth`, `byDay` from `Bond`
+        <where>
+            <if test="byMonth != null">
+                and byMonth = #{byMonth}
+            </if>
+            <if test="byDay != null">
+                and byDay = #{byDay}
+            </if>
+        </where>
+    </select>
+
+</mapper>
